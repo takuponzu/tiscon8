@@ -50,6 +50,15 @@
         <col span="1" style="background-color: #FFFFFF;">
         <col span="2" style="background-color: #FFFFFF;">
         <tbody>
+
+        <!-- ------------------書き換え部分--------------------------------------------------- -->
+        <tr>
+          <th>引っ越し予定月</th>
+          <td><span th:text="*{month}"></span></td>
+          <input type="hidden" name="month" id="month" th:value="*{month}"/>
+        </tr>
+        <!-- ------------------書き換え部分--------------------------------------------------- -->
+        
         <tr>
           <th style="width: 40%">転居元住所（都道府県）</th>
           <td>
@@ -110,7 +119,7 @@
       </table>
       <div class="form-group">
         <div class="text-center">
-          <button type="submit" name="backToConfirm" class="btn-back">TOPへ戻る</button>
+          <a class="btn btn-back" href="/" role="button">TOPへ戻る</a>
         </div>
       </div>
     </div>

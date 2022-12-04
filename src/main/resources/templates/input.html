@@ -28,17 +28,25 @@
         <div class="sub-title">お客様情報</div>
         <div class="form-group">
           <label for="customerName">氏名<br /><p style = "color:red;">※全角で入力してください。</p></style></label>
-          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎" placeholder="（例）山田　太郎"/>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL<br /><p style = "color:red;">※ハイフンは入れないでください。</p></label>
-          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+          <label for="tel">連絡先TEL<br /><p style = "color:red;">※ハイフンは使用しないでください。半角数字を入力してください。</p></label>
+          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="0312345678" placeholder="（例）0312345678"/>
         </div>
         <div class="form-group">
-          <label for="email">連絡先メールアドレス<br /><p style = "color:red;">※@を入れてください。 例：****@gmail.com</p></label>
-          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+          <label for="email">連絡先メールアドレス<br /><p style = "color:red;">※@以下を入れてください。 </p></label>
+          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com" placeholder="（例）test@test.com"/>
         </div>
-        <div class="sub-title">集荷元・お届け先</div>
+        <div class="sub-title">集荷元・お届け先、引っ越し予定月</div>
+        
+        <!-- ------------------書き換え部分--------------------------------------------------- -->
+        <div class="form-group">
+          <label for="month">引っ越し予定月<br /><p style = "color:red;">※1~12の半角数字を入力してください。</p></label>
+          <input type="text" id="month" name="month" th:field="*{month}" class="form-control" value="3"  placeholder="（例）3"/>
+        </div>
+        <!-- ------------------書き換え部分--------------------------------------------------- -->
+
         <div class="form-group">
           <label for="oldPrefectureId">集荷元住所（都道府県）</label>
           <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
@@ -46,9 +54,9 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="oldAddress">集荷元住所（市区町村以下）<br /><p style= "color:red;">※全角で入力してください。ハイフンは使用しないでください。</p></label>
+          <label for="oldAddress">集荷元住所（市区町村以下）<br /><p style= "color:red;">※全角で入力してください。</p></label>
           <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
-                 class="form-control" value="新宿区西新宿1-1-1"/>
+                 class="form-control" value="新宿区西新宿１－１－１" placeholder="（例）新宿区西新宿１－１－１"/>
         </div>
         <div class="form-group">
           <label for="newPrefectureId">お届け先住所（都道府県）</label>
@@ -57,29 +65,29 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="newAddress">お届け先住所（市区町村以下）<p style= "color:red;">※全角で入力してください。ハイフンは使用しないでください。</p></label>
+          <label for="newAddress">お届け先住所（市区町村以下）<p style= "color:red;">※全角で入力してください。</p></label>
           <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
-                 value="札幌市南区1"/>
+                 value="札幌市南区１" placeholder="（例）札幌市南区１"/>
         </div>
       </fieldset>
       <fieldset>
       <div class="sub-title">お荷物情報</div>
         <div class="form-group">
           <label for="box">段ボールの個数<br /><p style= "color:red;">※半角数字を入力してください。</p></label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10" placeholder="（例）10"/>
         </div>
         <div class="form-group">
-          <label for="bed">ベッドの個数<br /><p style= "color:red;">※1~9の半角数字を入力してください。</p></label>
-          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <label for="bed">ベッドの個数<br /><p style= "color:red;">※0~9の半角数字を入力してください。</p></label>
+          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3" placeholder="（例）3"/>
         </div>
         <div class="form-group">
-          <label for="bicycle">自転車の個数<br /><p style= "color:red;">※1~9の数字を入力してください。</p></label>
-          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <label for="bicycle">自転車の個数<br /><p style= "color:red;">※0~9の数字を入力してください。</p></label>
+          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1" placeholder="（例）1"/>
         </div>
         <div class="form-group">
-          <label for="washingMachine">洗濯機の個数<br /><p style= "color:red;">※1~9の半角数字を入力してください。</p></label>
+          <label for="washingMachine">洗濯機の個数<br /><p style= "color:red;">※0~9の半角数字を入力してください。</p></label>
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
-                 value="1"/>
+                 value="1"  placeholder="（例）1"/>
         </div>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み<br /><p style= "color:red;"></p></label>

@@ -5,6 +5,10 @@ import com.tiscon.validator.Numeric;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
+
 
 /**
  * 顧客が入力する見積もり情報を保持するクラス。
@@ -13,47 +17,63 @@ import javax.validation.constraints.NotNull;
  */
 public class UserOrderForm {
 
-    @NotBlank
+    //追加
+    @NotBlank( message = "1~12の数字で引っ越し予定月を正しく入力してください")
+    @Min(value = 1, message = "1~12の数字で引っ越し予定月を正しく入力してください") 
+    @Max(value = 12, message = "1~12の数字で引っ越し予定月を正しく入力してください")
+    private String month;
+
+    @NotBlank( message = "名前は空白を使わずに入力してください")
     private String customerName;
 
-    @NotBlank
-    @Numeric
+    @NotBlank( message = "電話番号は空白を使わずに入力してください")
+    @Pattern(regexp = "0\\d{1,4}\\d{1,4}\\d{4}", message = "ハイフンなしで電話番号の形式で入力してください（最初の数字は0で）")
     private String tel;
 
     @Email
-    @NotBlank
+    @NotBlank( message = "メールアドレスは空白を使わずに入力してください")
     private String email;
 
     @NotBlank
     private String oldPrefectureId;
 
-    @NotBlank
+    @NotBlank( message = "出荷元住所を正しく入力してください")
     private String oldAddress;
 
     @NotBlank
     private String newPrefectureId;
 
-    @NotBlank
+    @NotBlank( message = "お届け先住所を正しく入力してください")
     private String newAddress;
 
-    @Numeric
-    @NotBlank
+    @Numeric( message = "段ボールの個数を半角で入力してください")
+    @NotBlank( message = "段ボールの個数を空白を用いずに入力してください。無い場合は0を入力してください。")
     private String box;
 
-    @Numeric
-    @NotBlank
+    @Numeric( message = "ベッドの個数を半角で入力してください")
+    @NotBlank( message = "ベッドの個数を空白を用いずに入力してください。無い場合は0を入力してください。")
     private String bed;
 
-    @Numeric
-    @NotBlank
+    @Numeric( message = "自転車の個数を半角で入力してください")
+    @NotBlank( message = "自転車の個数を空白を用いずに入力してください。無い場合は0を入力してください。")
     private String bicycle;
 
-    @Numeric
-    @NotBlank
+    @Numeric( message = "洗濯機の個数を半角で入力してください")
+    @NotBlank( message = "洗濯機の個数を空白を用いずに入力してください。無い場合は0を入力してください。")
     private String washingMachine;
 
     @NotNull
     private boolean washingMachineInstallation;
+
+    //追加
+    public String getMonth() {
+        return month;
+    }
+
+    //追加
+    public void setMonth(String month) {
+        this.month = month;
+    }
 
     public String getCustomerName() {
         return customerName;
@@ -150,4 +170,6 @@ public class UserOrderForm {
     public void setWashingMachineInstallation(boolean washingMachineInstallation) {
         this.washingMachineInstallation = washingMachineInstallation;
     }
+
+    
 }

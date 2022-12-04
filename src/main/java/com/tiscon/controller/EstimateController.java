@@ -37,7 +37,7 @@ public class EstimateController {
 
     @GetMapping("")
     String index(Model model) {
-        return "top";
+        return "top";//
     }
 
     /**

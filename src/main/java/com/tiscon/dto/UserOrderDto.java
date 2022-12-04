@@ -2,6 +2,9 @@ package com.tiscon.dto;
 
 public class UserOrderDto {
 
+    //追加
+    private String month;
+
     private String customerName;
 
     private String tel;
@@ -25,6 +28,16 @@ public class UserOrderDto {
     private String washingMachine;
 
     private boolean washingMachineInstallation;
+
+    //追加
+    public int getMonth() {
+        return Integer.parseInt(month);
+    }
+
+    //追加
+    public void setMonth(String month) {
+        this.month = month;
+    }
 
     public String getCustomerName() {
         return customerName;
